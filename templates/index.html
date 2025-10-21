@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 JECA - Gestor Experto de Código y Algoritmos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🤖 JECA 🤖</h1>
+            <p>Gestor Experto de Código y Algoritmos</p>
+            <div class="version">VERSIÓN: 2.0 | AUTOR: Sistema JECA</div>
+        </div>
+
+        <!-- TABS DE INFORMACIÓN -->
+        <div class="info-tabs">
+            <button class="tab active" onclick="cambiarTab(0)">📋 Metodología</button>
+            <button class="tab" onclick="cambiarTab(1)">✅ Acepto</button>
+            <button class="tab" onclick="cambiarTab(2)">❌ Rechazo</button>
+            <button class="tab" onclick="cambiarTab(3)">📚 Ejemplos</button>
+        </div>
+
+        <!-- CONTENIDO DE TABS -->
+        <div class="info-content active" id="tab0">
+            <h2>📋 METODOLOGÍA DE RESOLUCIÓN</h2>
+            <div class="metodologia">
+                <ol>
+                    <li><strong>Identificación y clarificación del problema</strong>
+                        <ul>
+                            <li>Qué se pide</li>
+                            <li>Entradas y salidas esperadas</li>
+                        </ul>
+                    </li>
+                    <li><strong>Análisis detallado del problema</strong>
+                        <ul>
+                            <li>Complejidad esperada</li>
+                            <li>Casos especiales</li>
+                        </ul>
+                    </li>
+                    <li><strong>Desarrollo de soluciones alternativas</strong>
+                        <ul>
+                            <li>Enfoque 1 y Enfoque 2</li>
+                            <li>Ventajas y desventajas de cada uno</li>
+                        </ul>
+                    </li>
+                    <li><strong>Selección de la mejor solución</strong> (Justificación)</li>
+                    <li><strong>Implementación del seudocódigo</strong> (Código paso a paso)</li>
+                    <li><strong>Diagrama de flujo</strong> (Representación visual)</li>
+                    <li><strong>Solución en el lenguaje de programación</strong> (Implementación completa)</li>
+                    <li><strong>Ejemplo de ejecución</strong> (Entrada y Salida)</li>
+                    <li><strong>Explicación de resultados</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="info-content" id="tab1">
+            <h2>✅ PALABRAS CLAVE QUE ACEPTO</h2>
+            <p>JECA reconoce y resuelve problemas que contengan estas palabras:</p>
+            <div class="keywords">
+                <span class="keyword">programa</span>
+                <span class="keyword">algoritmo</span>
+                <span class="keyword">código</span>
+                <span class="keyword">función</span>
+                <span class="keyword">variable</span>
+                <span class="keyword">array</span>
+                <span class="keyword">matriz</span>
+                <span class="keyword">lista</span>
+                <span class="keyword">bucle</span>
+                <span class="keyword">for / while</span>
+                <span class="keyword">clase</span>
+                <span class="keyword">método</span>
+                <span class="keyword">estructura de datos</span>
+                <span class="keyword">ordenar</span>
+                <span class="keyword">buscar</span>
+                <span class="keyword">recursión</span>
+                <span class="keyword">calcular</span>
+                <span class="keyword">implementar</span>
+                <span class="keyword">Python</span>
+                <span class="keyword">Java</span>
+                <span class="keyword">C++</span>
+                <span class="keyword">JavaScript</span>
+            </div>
+        </div>
+
+        <div class="info-content" id="tab2">
+            <h2>❌ PALABRAS CLAVE QUE RECHAZO</h2>
+            <p>JECA NO responde preguntas sobre estos temas:</p>
+            <div class="keywords">
+                <span class="keyword reject">preguntas personales</span>
+                <span class="keyword reject">música</span>
+                <span class="keyword reject">recetas</span>
+                <span class="keyword reject">medicina</span>
+                <span class="keyword reject">deportes</span>
+                <span class="keyword reject">filosofía</span>
+                <span class="keyword reject">astrología</span>
+                <span class="keyword reject">chistes</span>
+                <span class="keyword reject">entretenimiento</span>
+                <span class="keyword reject">cómo estás</span>
+                <span class="keyword reject">quién eres</span>
+            </div>
+        </div>
+
+        <div class="info-content" id="tab3">
+            <h2>📚 EJEMPLOS DE PROBLEMAS</h2>
+            <h3 style="color: #28a745; margin-top: 20px;">✅ Ejemplos VÁLIDOS:</h3>
+            <div class="example-item">• Crea un programa que ordene una lista de números</div>
+            <div class="example-item">• Algoritmo para buscar un elemento en un array</div>
+            <div class="example-item">• Función recursiva para calcular el factorial</div>
+            <div class="example-item">• Programa que invierta una cadena de texto</div>
+            <div class="example-item">• Implementa una calculadora básica</div>
+            <div class="example-item">• Algoritmo de búsqueda binaria</div>
+            <div class="example-item">• Suma de números pares de una lista</div>
+
+            <h3 style="color: #dc3545; margin-top: 30px;">❌ Ejemplos NO válidos:</h3>
+            <div class="example-item invalid">• ¿Quién eres?</div>
+            <div class="example-item invalid">• Cuéntame un chiste</div>
+            <div class="example-item invalid">• ¿Qué hora es?</div>
+            <div class="example-item invalid">• Dame una receta de cocina</div>
+            <div class="example-item invalid">• ¿Cómo estás hoy?</div>
+        </div>
+
+        <!-- SECCIÓN DE CHAT -->
+        <div class="chat-section">
+            <div class="messages" id="messages">
+                <div class="message system">
+                    👋 <strong>¡Bienvenido a JECA!</strong><br>
+                    Soy tu asistente experto en problemas de programación.<br>
+                    Describe tu problema algorítmico y te ayudaré a resolverlo paso a paso. 🚀
+                </div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p><strong>⏳ Procesando tu problema...</strong></p>
+                <p>Por favor espera, esto puede tomar unos segundos.</p>
+            </div>
+
+            <div class="input-area">
+                <div class="input-row">
+                    <input 
+                        type="text" 
+                        id="problemInput" 
+                        placeholder="💬 Describe tu problema de programación aquí..."
+                        autocomplete="off"
+                    />
+                    <select id="lenguajeSelect">
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="C++">C++</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C">C</option>
+                        <option value="C#">C#</option>
+                        <option value="Go">Go</option>
+                        <option value="Rust">Rust</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="Swift">Swift</option>
+                        <option value="Kotlin">Kotlin</option>
+                    </select>
+                </div>
+
+                <div class="button-row">
+                    <button class="btn-primary" id="sendBtn" onclick="enviarProblema()">
+                        🚀 Resolver Problema
+                    </button>
+                    <button class="btn-success" onclick="mostrarAyuda()">
+                        ❓ Ayuda
+                    </button>
+                    <button class="btn-secondary" onclick="limpiarChat()">
+                        🗑️ Limpiar Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>JECA - Gestor Experto de Código y Algoritmos</strong> | Versión 2.0</p>
+            <p>⚠️ SOLO resuelvo problemas algorítmicos y de programación</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
