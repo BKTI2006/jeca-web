@@ -15,7 +15,8 @@ app = Flask(__name__)
 CORS(app)
 
 # API configuración
-API_KEY = "AIzaSyDBlECjubZ12ZeylFh7UamQg0KgAfFtjEc"
+import os
+API_KEY = os.environ.get('GEMINI_API_KEY', 'AIzaSyDBlECjubZ12ZeylFh7UamQg0KgAfFtjEc')
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
 
 def es_problema_no_programacion(problema):
@@ -201,11 +202,11 @@ def resolver():
     return jsonify(resultado)
 
 if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5000))
     print("\n" + "="*80)
     print("🤖 JECA - Servidor Web Iniciado 🤖")
     print("="*80)
-    print("\n✅ Servidor corriendo en: http://localhost:5000")
-    print("✅ Abre tu navegador y visita: http://localhost:5000")
-    print("✅ Presiona Ctrl+C para detener el servidor")
+    print(f"\n✅ Servidor corriendo en puerto: {port}")
     print("\n" + "="*80 + "\n")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=port)
